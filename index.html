@@ -1,0 +1,573 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Kimura Training Hub</title>
+<meta name="description" content="Training hub for Ms. Kimura at Taiheiyo Cement Philippines, Inc., Cebu">
+<meta name="theme-color" content="#1D5FD1">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='44' fill='%23D2402A'/%3E%3C/svg%3E">
+<script>try{var t=localStorage.getItem('kimura-theme');if(!t)t=matchMedia('(prefers-color-scheme:dark)').matches?'dark':'blue';document.documentElement.dataset.theme=t}catch(e){document.documentElement.dataset.theme='blue'}</script>
+<style>
+:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+body{margin:0}img{max-width:100%}[hidden]{display:none!important}
+</style>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@600;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: phone = content + bottom tab bar; tablet/desktop = left rail.
+   Idea: plain progress by area, so she always sees what is covered and what is next.
+   Palette: limestone neutrals, Cebu sea teal (HR), turmeric (CSR), vermilion sun and stamps. */
+:root,:root[data-theme="blue"]{
+  --bg:#EAF0F8; --surface:#FAFCFF; --surface2:#DCE6F3; --line:#C5D3E6;
+  --ink:#14233A; --ink2:#4A5B75; --accent:#1D5FD1; --accent-ink:#FFFFFF; --accent-soft:#D9E6FB;
+  --csr:#9A6A12; --csr-soft:#F4E7C9; --sun:#C2410C; --sun-soft:#FBDFD0;
+  --warn-soft:#F6E3C8; --warn-ink:#6B4208; --hero-bg:#14305C; --hero-fg:#EEF3FB;
+  --tile-hr:#1D5FD1; --tile-csr:#8A5C0C; --tile-ho:#3A4A63; color-scheme:light;
+  --f-display:'Shippori Mincho',Georgia,serif;
+  --f-body:'Zen Kaku Gothic New','Segoe UI',system-ui,sans-serif;
+  --f-mono:'IBM Plex Mono',ui-monospace,Menlo,Consolas,monospace;
+}
+:root[data-theme="pink"]{
+  --bg:#FBEFF3; --surface:#FFFAFC; --surface2:#F3DDE6; --line:#E8C8D5;
+  --ink:#3A1A28; --ink2:#7A5266; --accent:#B8265E; --accent-ink:#FFFFFF; --accent-soft:#FADCE8;
+  --csr:#7B3FA0; --csr-soft:#EBDDF5; --sun:#C2410C; --sun-soft:#FDE3D3;
+  --warn-soft:#F6E3C8; --warn-ink:#6B4208; --hero-bg:#5C1F3A; --hero-fg:#FCEFF4;
+  --tile-hr:#B8265E; --tile-csr:#7B3FA0; --tile-ho:#5E3A4B; color-scheme:light}
+:root[data-theme="green"]{
+  --bg:#EBF2EC; --surface:#F9FCF9; --surface2:#DDE8DE; --line:#C6D6C8;
+  --ink:#16281C; --ink2:#4A6150; --accent:#1E7A3C; --accent-ink:#FFFFFF; --accent-soft:#D6EDDB;
+  --csr:#9A6A12; --csr-soft:#F4E7C9; --sun:#C2410C; --sun-soft:#FBDFD0;
+  --warn-soft:#F6E3C8; --warn-ink:#6B4208; --hero-bg:#17402A; --hero-fg:#EEF5EF;
+  --tile-hr:#1E7A3C; --tile-csr:#8A5C0C; --tile-ho:#35493A; color-scheme:light}
+:root[data-theme="dark"]{
+  --bg:#121A1C; --surface:#1B2629; --surface2:#243135; --line:#324246;
+  --ink:#E7EDEA; --ink2:#9DB0B3; --accent:#4FC0CB; --accent-ink:#06282C; --accent-soft:#17383C;
+  --csr:#E3B655; --csr-soft:#3A3016; --sun:#FF7A63; --sun-soft:#4A241D;
+  --warn-soft:#3A2D18; --warn-ink:#F0CE98; --hero-bg:#243135; --hero-fg:#E7EDEA;
+  --tile-hr:#0F5860; --tile-csr:#8A5C0C; --tile-ho:#34484D; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.6;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 100px}
+h1,h2,h3,h4,p{margin:0}
+h1,h2,h3{text-wrap:balance;line-height:1.25}
+button,textarea{font:inherit;color:inherit}
+button{cursor:pointer}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px;border-radius:6px}
+.eyebrow{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink2);font-weight:700}
+.sub{color:var(--ink2)}
+
+.app{max-width:1080px;margin:0 auto;display:grid;gap:24px}
+main{min-width:0;display:grid;gap:24px;padding-top:20px}
+.topbar{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.brand{font-family:var(--f-display);font-weight:700;font-size:18px;line-height:1.2}
+.brand small{display:block;font-family:var(--f-body);font-weight:500;font-size:12px;color:var(--ink2);letter-spacing:.03em}
+.theme{border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:6px 14px;font-size:13px;flex:0 0 auto}
+
+nav{position:fixed;left:0;right:0;bottom:0;z-index:20;background:var(--surface);border-top:1px solid var(--line);
+  display:grid;grid-template-columns:repeat(5,1fr);padding:6px max(6px,env(safe-area-inset-right,0px)) calc(6px + env(safe-area-inset-bottom,0px)) max(6px,env(safe-area-inset-left,0px))}
+nav button{background:none;border:0;border-radius:12px;padding:8px 2px;display:grid;gap:2px;justify-items:center;color:var(--ink2);min-width:0}
+nav button svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+nav button span{font-size:12px;font-weight:700}
+nav button[aria-current="page"]{color:var(--accent);background:var(--accent-soft)}
+@media (min-width:900px){
+  body{padding-block:0 48px}
+  .app{grid-template-columns:200px minmax(0,1fr);gap:40px;align-items:start}
+  nav{position:sticky;top:0;grid-column:1;grid-row:1;grid-template-columns:1fr;gap:4px;border:0;background:transparent;padding:24px 0;left:auto;right:auto;bottom:auto;align-self:start}
+  nav button{grid-template-columns:24px 1fr;justify-items:start;text-align:left;gap:0 10px;padding:12px}
+  main{grid-column:2;grid-row:1}
+}
+
+/* hero */
+.hero{background:var(--hero-bg);color:var(--hero-fg);border-radius:22px;padding:28px 24px 30px;display:grid;gap:14px;position:relative;overflow:hidden;isolation:isolate}
+.hero h1{font-family:var(--f-display);font-weight:700;font-size:clamp(32px,8.5vw,54px);line-height:1.1}
+.hero p{opacity:.92;max-width:50ch}
+.hero .eyebrow{color:var(--hero-fg);opacity:.75}
+.hero .sun{position:absolute;right:-40px;top:-40px;width:160px;height:160px;border-radius:50%;background:var(--sun);z-index:-1}
+.hero .wave{position:absolute;left:0;right:0;bottom:0;height:40px;z-index:-1;opacity:.18}
+.meta{display:flex;flex-wrap:wrap;gap:8px}
+.chip{display:inline-flex;align-items:center;border-radius:999px;padding:4px 12px;font-size:13px;font-weight:700;font-family:var(--f-mono);background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.28)}
+
+.card{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:20px;display:grid;gap:12px;min-width:0}
+.sec-title h2{font-family:var(--f-display);font-size:26px}
+.link{background:none;border:0;color:var(--accent);font-weight:700;padding:6px 0;text-decoration:underline;text-underline-offset:3px;justify-self:start}
+.btn{border:1px solid var(--accent);background:var(--accent);color:var(--accent-ink);border-radius:12px;padding:10px 20px;font-weight:700}
+.btn.ghost{background:transparent;color:var(--accent)}
+.btn:disabled{opacity:.45;cursor:default}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+
+.qod{background:var(--sun-soft);border-color:transparent}
+.qod h3{font-family:var(--f-display);font-size:22px}
+.qod .eyebrow{color:var(--sun)}
+
+.progress h2{font-family:var(--f-display);font-size:22px}
+.stamps{display:grid;grid-template-columns:repeat(auto-fill,minmax(64px,1fr));gap:10px}
+.stamp{display:grid;justify-items:center;gap:4px;background:none;border:0;padding:0;text-align:center;min-width:0}
+.stamp .ring{width:58px;height:58px;border-radius:50%;display:grid;place-items:center;border:2px dashed var(--line);color:var(--ink2)}
+.stamp .ring svg{width:24px;height:24px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.stamp.earned .ring{border:3px solid var(--sun);color:var(--sun);background:var(--sun-soft);transform:rotate(-8deg);box-shadow:inset 0 0 0 3px var(--surface),inset 0 0 0 4px var(--sun)}
+.stamp:nth-child(even).earned .ring{transform:rotate(7deg)}
+.stamp small{font-size:11px;line-height:1.2;color:var(--ink2);overflow-wrap:anywhere;max-width:100%}
+.meter{height:10px;background:var(--surface2);border-radius:99px;overflow:hidden}
+.meter b{display:block;height:100%;background:var(--accent);border-radius:99px;transition:width .4s}
+
+.tiles{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr))}
+.big-tile{text-align:left;border:0;border-radius:20px;padding:20px;display:grid;gap:6px;min-width:0;color:#fff}
+.big-tile h3{font-family:var(--f-display);font-size:22px}
+.big-tile p{font-size:14px;opacity:.95}
+.big-tile svg{width:30px;height:30px;stroke:#fff;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.objs{margin:0;padding:0;list-style:none;display:grid;gap:10px}
+.objs li{display:grid;grid-template-columns:28px 1fr;gap:10px}
+.objs b{display:grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--accent-soft);color:var(--accent);font-family:var(--f-mono);font-size:13px}
+.gl{display:grid;grid-template-columns:minmax(0,max-content) minmax(0,1fr);gap:8px 16px;margin:0}
+.gl dt{font-family:var(--f-mono);font-weight:500}
+.gl dd{margin:0;color:var(--ink2);font-size:14px}
+@media (max-width:480px){.gl{grid-template-columns:1fr;gap:0}.gl dd{margin-bottom:8px}}
+
+.grid{display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(min(100%,230px),1fr))}
+.tcard{text-align:left;background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:16px;display:grid;gap:10px;align-content:start;min-width:0}
+.tcard:hover{border-color:var(--area)}
+.ico{width:46px;height:46px;border-radius:14px;display:grid;place-items:center;background:var(--area-soft);color:var(--area);flex:0 0 auto}
+.ico svg{width:26px;height:26px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.tcard h3{font-size:17px}
+.pill{font-size:12px;font-weight:700;border-radius:999px;padding:2px 10px;background:var(--sun-soft);color:var(--sun);white-space:nowrap;justify-self:start}
+.pill.empty{background:transparent;color:var(--ink2);border:1px dashed var(--line)}
+.area-hr{--area:var(--accent);--area-soft:var(--accent-soft)}
+.area-csr{--area:var(--csr);--area-soft:var(--csr-soft)}
+.detail{display:grid;gap:16px}
+.detail h2{font-family:var(--f-display);font-size:28px}
+.detail .lead{font-size:18px}
+.mine{display:grid;gap:10px}
+.mine h3{font-size:17px}
+textarea{width:100%;min-height:120px;resize:vertical;background:var(--bg);border:1px solid var(--line);border-radius:14px;padding:12px 14px;line-height:1.55}
+textarea::placeholder{color:var(--ink2)}
+.levels{display:flex;gap:8px;flex-wrap:wrap}
+.levels button{border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:6px 14px;font-size:14px;font-weight:700}
+.levels button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.saved{font-size:12px;color:var(--ink2);min-height:18px}
+.more{border:2px dashed var(--line);border-radius:18px;padding:16px;color:var(--ink2);font-size:14px}
+
+.entry{display:grid;gap:6px;border-top:1px solid var(--line);padding-top:12px}
+.entry header{display:flex;justify-content:space-between;gap:8px;align-items:center}
+.entry p{white-space:pre-wrap;overflow-wrap:anywhere}
+.when{font-family:var(--f-mono);font-size:12px;color:var(--ink2)}
+.kind{font-size:12px;font-weight:700;border-radius:6px;padding:1px 8px;background:var(--surface2);color:var(--ink2)}
+.kind.q{background:var(--warn-soft);color:var(--warn-ink)}
+.del{background:none;border:0;color:var(--ink2);font-size:13px;text-decoration:underline}
+.jump{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px;align-items:start;text-align:left;background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:10px 12px;width:100%}
+.jump p{font-size:14px;color:var(--ink2);overflow-wrap:anywhere}
+
+.stage{background:var(--surface2);border:1px solid var(--line);border-radius:14px;aspect-ratio:16/9;max-width:100%;display:grid;place-items:center;overflow:hidden;touch-action:pan-y}
+.stage img{width:100%;height:100%;object-fit:contain;display:block}
+.thumbs{display:flex;gap:8px;overflow-x:auto;padding-bottom:6px}
+.thumbs button{flex:0 0 auto;width:92px;aspect-ratio:16/9;border:2px solid var(--line);border-radius:8px;background:var(--surface2);padding:0;overflow:hidden}
+.thumbs button[aria-current="true"]{border-color:var(--accent)}
+.thumbs img{width:100%;height:100%;object-fit:cover;display:block}
+.hcard{display:grid;grid-template-columns:46px minmax(0,1fr) auto;gap:14px;align-items:center;text-align:left;width:100%;background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:16px 18px}
+.hcard h3{font-size:18px}
+.hcard p{font-size:14px;color:var(--ink2)}
+.hcard:disabled{opacity:.8;cursor:default}
+.hcard .pill{background:var(--accent-soft);color:var(--accent)}
+.hcard .pill.empty{background:transparent;color:var(--ink2)}
+
+.toast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(88px + env(safe-area-inset-bottom,0px));background:var(--ink);color:var(--bg);border-radius:10px;padding:8px 16px;font-size:14px;z-index:30;max-width:90vw}
+footer{color:var(--ink2);font-size:13px;text-align:center;padding-top:8px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+.themes{display:flex;gap:8px;align-items:center;flex:0 0 auto}
+.sw{width:30px;height:30px;border-radius:50%;border:2px solid var(--surface);background:var(--c);padding:0;box-shadow:0 0 0 1px var(--line)}
+.sw[aria-pressed="true"]{box-shadow:0 0 0 3px var(--accent)}
+.ja{font-size:16px}
+.big-tile.hr{background:var(--tile-hr)}.big-tile.csr{background:var(--tile-csr)}.big-tile.ho{background:var(--tile-ho)}
+@media print{nav,.themes,.toast{display:none!important}body{padding:0}}
+</style>
+
+</head>
+<body>
+<div class="app">
+<nav aria-label="Main">
+  <button data-tab="home" aria-current="page"><svg viewBox="0 0 24 24"><path d="M3 11l9-8 9 8M5 10v10h14V10"/></svg><span>Home</span></button>
+  <button data-tab="hr"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c0-3.6 2.9-6 6.5-6s6.5 2.4 6.5 6M16 5a3.5 3.5 0 010 6.5M18 14c2.2.6 3.5 2.4 3.5 6"/></svg><span>HR</span></button>
+  <button data-tab="csr"><svg viewBox="0 0 24 24"><path d="M12 21s-8-5.2-8-11a4.6 4.6 0 018-3 4.6 4.6 0 018 3c0 5.8-8 11-8 11z"/></svg><span>CSR</span></button>
+  <button data-tab="handouts"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg><span>Handouts</span></button>
+  <button data-tab="journal"><svg viewBox="0 0 24 24"><path d="M5 4h11a3 3 0 013 3v13H8a3 3 0 01-3-3V4zM9 9h6M9 13h6"/></svg><span>Journal</span></button>
+</nav>
+
+<main>
+  <div class="topbar">
+    <div class="brand">Kimura Training Hub<small>Taiheiyo Cement Philippines, Inc.</small></div>
+    <div class="themes" role="group" aria-label="Colour theme"><button class="sw" data-th="blue" style="--c:#1D5FD1" aria-label="Blue theme" aria-pressed="false"></button><button class="sw" data-th="pink" style="--c:#E0508A" aria-label="Pink theme" aria-pressed="false"></button><button class="sw" data-th="green" style="--c:#2E9E57" aria-label="Green theme" aria-pressed="false"></button><button class="sw" data-th="dark" style="--c:#243135" aria-label="Dark theme" aria-pressed="false"></button></div>
+  </div>
+
+  <section id="tab-home" style="display:grid;gap:20px">
+    <div class="hero">
+      <div class="sun" aria-hidden="true"></div>
+      <svg class="wave" viewBox="0 0 400 40" preserveAspectRatio="none" aria-hidden="true"><path d="M0 20 Q50 0 100 20 T200 20 T300 20 T400 20 V40 H0Z" fill="currentColor"/></svg>
+      <p class="eyebrow" id="greet">Welcome</p>
+      <h1>Ms. Kimura,<br>welcome to Cebu</h1>
+      <p class="ja" lang="ja">ようこそ、セブへ。ここがあなたの学びのスペースです。</p>
+      <p>This is your space. Open a topic, read the handouts, and write down what you learn. Everything stays here for you to come back to.</p>
+      <div class="meta"><span class="chip">Oct 26 – Dec 18, 2026</span><span class="chip" id="countdown"></span><span class="chip">Taiheiyo Cement Philippines, Inc.</span></div>
+    </div>
+
+    <div class="card qod">
+      <p class="eyebrow">Question for today</p>
+      <h3 id="qod-text"></h3>
+      <div><button class="btn" id="qod-go">Answer in my journal</button></div>
+    </div>
+
+    <div class="card progress">
+      <h2>My training progress</h2>
+      <p class="sub">A topic counts as covered once you add notes or mark how well you understand it.</p>
+      <div id="prog-rows" style="display:grid;gap:14px"></div>
+      <div id="next-up" style="display:grid;gap:8px"></div>
+    </div>
+
+    <div class="tiles">
+      <button class="big-tile hr" data-go="hr"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c0-3.6 2.9-6 6.5-6s6.5 2.4 6.5 6M16 5a3.5 3.5 0 010 6.5M18 14c2.2.6 3.5 2.4 3.5 6"/></svg><h3>Human Resources</h3><p>Timekeeping, offboarding, hiring and more.</p></button>
+      <button class="big-tile csr" data-go="csr"><svg viewBox="0 0 24 24"><path d="M12 21s-8-5.2-8-11a4.6 4.6 0 018-3 4.6 4.6 0 018 3c0 5.8-8 11-8 11z"/></svg><h3>CSR and Community</h3><p>How we work with our neighbors.</p></button>
+      <button class="big-tile ho" data-go="handouts"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg><h3>Handouts</h3><p>The presentation slides, to read again.</p></button>
+    </div>
+
+    <div class="card">
+      <div class="sec-title"><h2 style="font-size:22px">What this training is for</h2></div>
+      <ol class="objs">
+        <li><b>1</b><span>See how HR, CSR, office work and the plant really run.</span></li>
+        <li><b>2</b><span>Learn how business is done in the Philippines.</span></li>
+        <li><b>3</b><span>Grow your communication and teamwork across cultures.</span></li>
+        <li><b>4</b><span>Understand how the company works with its community.</span></li>
+        <li><b>5</b><span>Join real projects and suggest improvements.</span></li>
+      </ol>
+    </div>
+
+    <div class="card">
+      <div class="sec-title"><h2 style="font-size:22px">Short words you will hear</h2></div>
+      <dl class="gl">
+        <dt>CSR</dt><dd>Corporate social responsibility: how the company helps and works with the community.</dd>
+        <dt>HRA</dt><dd>Human Resources and Administration, the team that hosts your training.</dd>
+        <dt>MMR</dt><dd>Monthly Management Review, a monthly meeting where leaders review results and decide actions.</dd>
+        <dt>IMS</dt><dd>The company's management standards for quality, environment, and health and safety.</dd>
+        <dt>CSEHC</dt><dd>Central Safety, Environment and Health Committee.</dd>
+        <dt>201 file</dt><dd>An employee's personal record file kept by HR.</dd>
+      </dl>
+    </div>
+    <div class="card">
+      <div class="sec-title"><h2 style="font-size:22px">Useful Cebuano words</h2></div>
+      <p class="sub" lang="ja">セブの言葉 (セブアノ語)。職場では英語やタガログ語も使われます。</p>
+      <p class="sub">Cebuano is the local language in Cebu. Colleagues also mix English and Tagalog. Ask a colleague to help with pronunciation.</p>
+      <dl class="gl" id="phrases"></dl>
+    </div>
+    <footer>Taiheiyo Cement Philippines, Inc. · Cebu</footer>
+  </section>
+
+  <section id="tab-hr" hidden class="area-hr" style="display:grid;gap:16px">
+    <div data-list style="display:grid;gap:16px">
+      <div class="sec-title"><h2>Human Resources</h2></div>
+      <p class="sub">Pick a topic to read about it and write your notes.</p>
+      <div class="grid" id="hr-grid"></div>
+      <div class="more">More HR topics from your colleagues will be added here.</div>
+    </div>
+    <div data-view hidden class="detail"></div>
+  </section>
+
+  <section id="tab-csr" hidden class="area-csr" style="display:grid;gap:16px">
+    <div data-list style="display:grid;gap:16px">
+      <div class="sec-title"><h2>CSR and Community</h2></div>
+      <p class="sub">How the company works with the communities around the plant.</p>
+      <div class="grid" id="csr-grid"></div>
+      <div class="more">More CSR topics from your colleagues will be added here.</div>
+    </div>
+    <div data-view hidden class="detail"></div>
+  </section>
+
+  <section id="tab-handouts" hidden style="display:grid;gap:16px">
+    <div id="ho-list" style="display:grid;gap:16px">
+      <div class="sec-title"><h2>Handouts</h2></div>
+      <p class="sub">The presentations from your trainers. Open one and swipe through the slides. They stay here for you to read again.</p>
+      <div id="ho-cards" style="display:grid;gap:12px"></div>
+      <div class="more">More handouts from your colleagues will be added here.</div>
+    </div>
+    <div id="ho-view" hidden style="display:grid;gap:12px">
+      <div class="row" style="justify-content:space-between"><button class="link" id="ho-back">All handouts</button><span class="sub" id="ho-count"></span></div>
+      <h2 id="ho-title" style="font-family:var(--f-display);font-size:24px"></h2>
+      <div class="stage" id="ho-stage" tabindex="0" aria-label="Slide viewer. Use arrow keys to change slides."><img id="ho-img" alt=""></div>
+      <div class="row" style="justify-content:space-between"><button class="btn ghost" id="ho-prev">Previous</button><button class="btn" id="ho-next">Next</button></div>
+      <div class="thumbs" id="ho-thumbs"></div>
+      <div class="card"><h3 style="font-size:17px">My notes on this handout</h3><textarea id="ho-note" aria-label="My notes on this handout" placeholder="Write what you want to remember."></textarea><p class="saved" id="ho-saved"></p></div>
+    </div>
+  </section>
+
+  <section id="tab-journal" hidden style="display:grid;gap:16px">
+    <div class="sec-title"><h2>My Journal</h2></div>
+    <p class="sub">A private place for what you learn, ideas, and questions to ask. Notes are saved on this device.</p>
+    <div class="card">
+      <p class="eyebrow" id="jr-prompt" hidden></p>
+      <div class="levels" id="kinds" role="group" aria-label="Type of note"><button data-k="learned" aria-pressed="true">I learned</button><button data-k="question" aria-pressed="false">Question</button><button data-k="idea" aria-pressed="false">Idea</button></div>
+      <textarea id="qn" aria-label="New journal note" placeholder="Write one thing you learned today, or a question you want to ask."></textarea>
+      <div class="row"><button class="btn" id="add">Add to journal</button><span class="saved" id="add-msg"></span></div>
+    </div>
+    <div class="card" id="entries"></div>
+    <div class="card" id="by-topic"></div>
+    <div class="card">
+      <h3 style="font-size:17px">Keep a copy</h3>
+      <p class="sub">Save everything you wrote as a text file, so it stays with you after training.</p>
+      <div class="row"><button class="btn" id="save-file">Save as file</button><button class="btn ghost" id="copy-all">Copy all</button></div>
+      <p class="sub" style="margin-top:6px">Backup lets you move your notes to another phone or computer.</p>
+      <div class="row"><button class="btn ghost" id="bk-save">Download backup</button><button class="btn ghost" id="bk-load">Restore backup</button><input type="file" id="bk-file" accept=".json,application/json" hidden></div>
+      <textarea id="export-box" readonly hidden aria-label="All notes as text"></textarea>
+    </div>
+  </section>
+</main>
+</div>
+<div class="toast" id="toast" hidden></div>
+
+<script>
+/* ---------- DATA ---------- */
+const IC={
+ clock:'<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',
+ exit:'<path d="M10 4H5v16h5M15 8l4 4-4 4M19 12H9"/>',
+ clip:'<rect x="6" y="4" width="12" height="17" rx="2"/><path d="M9 4h6v3H9zM9 12h6M9 16h6"/>',
+ userplus:'<circle cx="10" cy="8" r="3.5"/><path d="M3 20c0-3.5 3-6 7-6M18 9v6M15 12h6"/>',
+ folder:'<path d="M3 6h6l2 2h10v11H3z"/>',
+ scale:'<path d="M12 4v16M7 20h10M5 7h14M5 7l-3 7a3 3 0 006 0zM19 7l-3 7a3 3 0 006 0z"/>',
+ star:'<path d="M12 3l2.6 5.6 6.1.7-4.5 4.2 1.2 6L12 16.5 6.6 19.5l1.2-6L3.3 9.3l6.1-.7z"/>',
+ heart:'<path d="M12 21s-8-5.2-8-11a4.6 4.6 0 018-3 4.6 4.6 0 018 3c0 5.8-8 11-8 11z"/>',
+ chat:'<path d="M4 5h16v11H9l-5 4z"/>',
+ gift:'<rect x="4" y="9" width="16" height="11" rx="1"/><path d="M12 9v11M3 6h18v3H3zM12 6c-2-3-6-2-5 0M12 6c2-3 6-2 5 0"/>',
+ bars:'<path d="M5 20V10M12 20V4M19 20v-7"/>',
+ book:'<path d="M5 4h11a3 3 0 013 3v13H8a3 3 0 01-3-3z"/>',
+ globe:'<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/>'
+};
+const svg=k=>`<svg viewBox="0 0 24 24" aria-hidden="true">${IC[k]}</svg>`;
+const HR=[
+{id:'timekeeping',t:'Timekeeping and Attendance',ic:'clock',about:'How work hours, attendance and absences are recorded.',handout:'timekeeping'},
+{id:'offboarding',t:'Offboarding Process',ic:'exit',about:'What happens when an employee leaves the company: notice, clearance, final pay and exit feedback.',handout:'offboarding'},
+{id:'hr-overview',t:'HR Processes Overview',ic:'clip',about:'The basics of hiring, performance reviews, promotion, pay increases, resignation and retirement.'},
+{id:'recruitment',t:'Recruitment and Onboarding',ic:'userplus',about:'How new people are found, tested, interviewed, hired and welcomed.'},
+{id:'201-files',t:'Employee Records (201 Files)',ic:'folder',about:'How employee records are kept safe and organized.'},
+{id:'conduct',t:'Code of Conduct and Discipline',ic:'scale',about:'The rules of good behavior at work, and the fair process when rules are broken.'},
+{id:'events',t:'Recognition Events',ic:'star',about:'How the company plans and runs events that thank employees, such as the Service Loyalty awards.'},
+].map(t=>({...t,area:'hr'}));
+const CSR=[
+{id:'csr-overview',t:'Community Relations and CSR',ic:'heart',about:'How the company works with the communities near the plant.'},
+{id:'complaints',t:'Complaints and Questions',ic:'chat',about:'How community complaints and questions are received, recorded, answered and closed.'},
+{id:'requests',t:'Community Requests',ic:'gift',about:'How donation and sponsorship requests from the community are reviewed and approved.'},
+{id:'csr-design',t:'Planning a CSR Project',ic:'bars',about:'How a community project is planned and how its results are checked.'},
+{id:'stories',t:'Stakeholder Stories',ic:'book',about:'Real stories of how community programs helped people.'},
+{id:'compare',t:'Japan and Philippines Practices',ic:'globe',about:'How decisions and community work are done differently in each country.'},
+].map(t=>({...t,area:'csr'}));
+const ALL=[...HR,...CSR];
+/* Handout slides are image files published with the page, e.g. 'handouts/timekeeping/01.jpg'. Empty list = coming soon. Or set link to a shared presentation URL to open it in a new tab. */
+const HANDOUTS=[
+{id:'timekeeping',t:'Timekeeping Policy',ic:'clock',area:'HR',slides:[],link:''},
+{id:'offboarding',t:'Offboarding Process',ic:'exit',area:'HR',slides:[],link:''},
+];
+/* Cebuano is the local language in Cebu: [Cebuano, Japanese, English] */
+const PHRASES=[['Maayong buntag','おはようございます','Good morning'],['Maayong udto','こんにちは (昼)','Good noon'],['Maayong hapon','こんにちは (午後)','Good afternoon'],['Maayong gabii','こんばんは','Good evening'],['Kumusta ka?','お元気ですか？','How are you?'],['Maayo ra','元気です','I am fine'],['Salamat','ありがとう','Thank you'],['Palihug','お願いします','Please'],['Pasayloa ko','すみません','Excuse me / sorry'],['Oo / Dili','はい / いいえ','Yes / No'],['Wala ko kasabot','わかりません','I do not understand'],['Unsa ni?','これは何ですか？','What is this?'],['Pila ni?','いくらですか？','How much is this?'],['Tabang','助けて / 手伝って','Help'],['Kaon ta','食べましょう','Let us eat'],['Amping','気をつけて','Take care']];
+function renderPhrases(){$('#phrases').innerHTML=PHRASES.map(p=>`<dt>${esc(p[0])}</dt><dd>${esc(p[1])} · ${esc(p[2])}</dd>`).join('')}
+function renderCountdown(){const day=864e5,s=new Date(2026,9,26),e=new Date(2026,11,18),n=new Date(),d0=new Date(n.getFullYear(),n.getMonth(),n.getDate());let t;
+  if(d0<s){const k=Math.round((s-d0)/day);t='Starts in '+k+' day'+(k===1?'':'s')}
+  else if(d0>e)t='Training complete';
+  else{const k=Math.round((d0-s)/day),w=Math.min(8,Math.floor(k/7)+1),r=Math.round((e-d0)/day);t='Week '+w+' of 8 · '+r+' day'+(r===1?'':'s')+' left'}
+  $('#countdown').textContent=t}
+const LEVELS=[['review','Need to review'],['getting','Getting it'],['got','Got it']];
+const KINDS={learned:'I learned',question:'Question',idea:'Idea'};
+const PROMPTS=[
+ 'What is one new thing you learned today?',
+ 'What surprised you about how work is done here?',
+ 'What is one word or phrase you learned today?',
+ 'What is different from Japan, and what is the same?',
+ 'Who helped you today, and what did they teach you?',
+ 'What is one question you still want to ask?',
+ 'What is one thing you could suggest to improve a process?',
+ 'What was the most interesting thing you saw today?',
+ 'What would you tell a friend about today?',
+ 'What do you want to understand better tomorrow?'
+];
+
+/* ---------- STORAGE (this browser only) ---------- */
+const KEY='kimura-journal-v1';
+let J={topics:{},entries:[],handoutNotes:{}};
+try{const r=JSON.parse(localStorage.getItem(KEY)||'null');if(r&&r.topics&&r.entries){J=r;J.handoutNotes=J.handoutNotes||{}}}catch(e){}
+let storageOk=true;
+function persist(){try{localStorage.setItem(KEY,JSON.stringify(J));storageOk=true}catch(e){storageOk=false}}
+
+/* ---------- HELPERS ---------- */
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const stamp=ts=>new Date(ts).toLocaleString(undefined,{month:'short',day:'numeric',hour:'numeric',minute:'2-digit'});
+let toastT;function toast(m){const t=$('#toast');t.textContent=m;t.hidden=false;clearTimeout(toastT);toastT=setTimeout(()=>t.hidden=true,2400)}
+const topicNote=id=>J.topics[id]||{};
+const hasTopic=id=>{const n=topicNote(id);return !!((n.note&&n.note.trim())||n.level)};
+const byId=id=>ALL.find(t=>t.id===id);
+
+/* ---------- HOME ---------- */
+function renderHome(){
+  const h=new Date().getHours();
+  $('#greet').textContent=h<12?'Good morning':h<18?'Good afternoon':'Good evening';
+  const day=Math.floor(Date.now()/864e5);
+  $('#qod-text').textContent=PROMPTS[day%PROMPTS.length];
+  $('#prog-rows').innerHTML=[['HR','Human Resources',HR],['CSR','CSR and Community',CSR]].map(([k,name,list])=>{
+    const d=list.filter(t=>hasTopic(t.id)).length,pc=Math.round(d/list.length*100);
+    return `<div style="display:grid;gap:6px"><div class="row" style="justify-content:space-between"><b>${name}</b><span class="sub">${d} of ${list.length} topics</span></div><div class="meter" role="img" aria-label="${name}: ${d} of ${list.length} topics covered"><b style="width:${pc}%"></b></div></div>`}).join('');
+  const left=ALL.filter(t=>!hasTopic(t.id)).slice(0,3);
+  $('#next-up').innerHTML=left.length?`<p class="eyebrow" style="margin-top:4px">Up next</p>`+left.map(t=>`<button class="jump" data-open="${t.id}"><span><b>${esc(t.t)}</b></span><span class="pill empty">${t.area==='hr'?'HR':'CSR'}</span></button>`).join(''):`<p class="sub">You have covered every topic. Well done.</p>`;
+  $$('#next-up [data-open]').forEach(b=>b.onclick=()=>openTopic(b.dataset.open));
+}
+$('#qod-go').onclick=()=>{
+  show('journal',true);
+  $('#jr-prompt').textContent=$('#qod-text').textContent;$('#jr-prompt').hidden=false;
+  $('#qn').placeholder='Write your answer here.';$('#qn').focus();
+};
+
+/* ---------- TOPICS ---------- */
+function renderGrids(){
+  [['hr',HR],['csr',CSR]].forEach(([a,list])=>{
+    $('#'+a+'-grid').innerHTML=list.map(t=>`<button class="tcard" data-open="${t.id}"><span class="ico">${svg(t.ic)}</span><h3>${esc(t.t)}</h3><span class="pill ${hasTopic(t.id)?'':'empty'}">${hasTopic(t.id)?'Notes added':'No notes yet'}</span></button>`).join('');
+  });
+  $$('.tcard[data-open]').forEach(b=>b.onclick=()=>openTopic(b.dataset.open));
+}
+const timers={};
+function openTopic(id){
+  const t=byId(id);if(!t)return;
+  show(t.area,true);
+  const sec=$('#tab-'+t.area),v=sec.querySelector('[data-view]'),n=topicNote(id);
+  const list=t.area==='hr'?HR:CSR,i=list.findIndex(x=>x.id===id),nx=list[i+1];
+  sec.querySelector('[data-list]').hidden=true;v.hidden=false;
+  v.innerHTML=`<div><button class="link" data-back>All ${t.area==='hr'?'HR':'CSR'} topics</button></div>
+    <div class="row"><span class="ico">${svg(t.ic)}</span><h2>${esc(t.t)}</h2></div>
+    <p class="lead">${esc(t.about)}</p>
+    ${t.handout?`<div><button class="btn" data-handout="${t.handout}">Open the handout</button></div>`:''}
+    <div class="card mine">
+      <h3>What I learned</h3>
+      <textarea id="n-${t.id}" aria-label="What I learned about ${esc(t.t)}" placeholder="Write the main points in your own words.">${esc(n.note||'')}</textarea>
+      <div class="levels" role="group" aria-label="How confident do I feel">${LEVELS.map(l=>`<button data-lv="${l[0]}" aria-pressed="${n.level===l[0]}">${l[1]}</button>`).join('')}</div>
+      <p class="saved" data-saved>${n.at?'Saved '+stamp(n.at):'Your note saves by itself.'}</p>
+    </div>
+    ${nx?`<div><button class="link" data-next="${nx.id}">Next topic: ${esc(nx.t)}</button></div>`:''}`;
+  v.querySelector('[data-back]').onclick=()=>{v.hidden=true;sec.querySelector('[data-list]').hidden=false;window.scrollTo(0,0)};
+  const nb=v.querySelector('[data-next]');if(nb)nb.onclick=()=>openTopic(nb.dataset.next);
+  const ta=v.querySelector('textarea'),sv=v.querySelector('[data-saved]');
+  ta.addEventListener('input',()=>{clearTimeout(timers[id]);timers[id]=setTimeout(()=>{
+    const x=J.topics[id]||(J.topics[id]={});const had=hasTopic(id);x.note=ta.value;x.at=Date.now();persist();
+    sv.textContent=storageOk?'Saved '+stamp(x.at):'Could not save on this device. Use Save as file in My Journal.';
+    if(!had&&hasTopic(id))toast('Notes saved');refreshAll()},500)});
+  v.querySelectorAll('[data-lv]').forEach(b=>b.onclick=()=>{
+    const x=J.topics[id]||(J.topics[id]={});const had=hasTopic(id);
+    x.level=x.level===b.dataset.lv?null:b.dataset.lv;x.at=Date.now();persist();
+    v.querySelectorAll('[data-lv]').forEach(k=>k.setAttribute('aria-pressed',k.dataset.lv===x.level));
+    sv.textContent='Saved '+stamp(x.at);if(!had&&hasTopic(id))toast('Notes saved');refreshAll();
+  });
+  window.scrollTo(0,0);
+}
+function refreshAll(){renderHome();renderGrids();renderJournal()}
+
+/* ---------- JOURNAL ---------- */
+let kind='learned';
+$$('#kinds button').forEach(b=>b.onclick=()=>{kind=b.dataset.k;$$('#kinds button').forEach(x=>x.setAttribute('aria-pressed',x===b))});
+$('#add').onclick=()=>{
+  const v=$('#qn').value.trim();if(!v){$('#add-msg').textContent='Write something first.';return}
+  const p=$('#jr-prompt');
+  J.entries.unshift({id:Date.now(),t:Date.now(),kind,text:(p.hidden?'':p.textContent+'\n')+v});persist();
+  $('#qn').value='';p.hidden=true;$('#qn').placeholder='Write one thing you learned today, or a question you want to ask.';
+  $('#add-msg').textContent='Added.';renderJournal();
+};
+function renderJournal(){
+  $('#entries').innerHTML=`<h3 style="font-size:17px">Your entries</h3>`+(J.entries.length
+    ?J.entries.map(e=>`<div class="entry"><header><span><span class="kind ${e.kind==='question'?'q':''}">${KINDS[e.kind]||'Note'}</span> <span class="when">${stamp(e.t)}</span></span><button class="del" data-del="${e.id}">Delete</button></header><p>${esc(e.text)}</p></div>`).join('')
+    :`<p class="sub">Nothing here yet. Write your first note above. Try one thing you learned today.</p>`);
+  $$('[data-del]').forEach(b=>b.onclick=()=>{
+    if(b.dataset.armed!=='1'){b.dataset.armed='1';b.textContent='Tap again to delete';return}
+    J.entries=J.entries.filter(e=>String(e.id)!==b.dataset.del);persist();renderJournal();
+  });
+  const done=ALL.filter(t=>hasTopic(t.id));
+  $('#by-topic').innerHTML=`<h3 style="font-size:17px">Notes by topic</h3>`+(done.length
+    ?done.map(t=>{const n=topicNote(t.id),lv=LEVELS.find(l=>l[0]===n.level);
+      return `<button class="jump" data-jump="${t.id}"><span><b>${esc(t.t)}</b><p>${esc((n.note||'').slice(0,140))||'No written note yet.'}</p></span><span class="pill">${lv?lv[1]:'Notes'}</span></button>`}).join('')
+    :`<p class="sub">Notes you write inside HR and CSR topics show up here.</p>`);
+  $$('[data-jump]').forEach(b=>b.onclick=()=>openTopic(b.dataset.jump));
+}
+function exportText(){
+  let o='MY TRAINING JOURNAL\nMs. Kimura · Taiheiyo Cement Philippines, Inc., Cebu\n\n== BY TOPIC ==\n';
+  ALL.filter(t=>hasTopic(t.id)).forEach(t=>{const n=topicNote(t.id),lv=LEVELS.find(l=>l[0]===n.level);
+    o+=`\n[${t.area.toUpperCase()}] ${t.t}${lv?' ('+lv[1]+')':''}\n${n.note||''}\n`});
+  HANDOUTS.filter(h=>(J.handoutNotes[h.id]||'').trim()).forEach(h=>{o+=`\n[Handout] ${h.t}\n${J.handoutNotes[h.id]}\n`});
+  o+='\n== JOURNAL ENTRIES ==\n';
+  J.entries.slice().reverse().forEach(e=>{o+=`\n${stamp(e.t)} · ${KINDS[e.kind]||'Note'}\n${e.text}\n`});
+  return o;
+}
+function showBox(txt){const b=$('#export-box');b.hidden=false;b.value=txt;b.style.minHeight='200px';b.select();toast('Select and copy the text below')}
+function dl(name,data,type){const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([data],{type}));a.download=name;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(a.href),1500)}
+$('#save-file').onclick=()=>{try{dl('my-training-journal.txt',exportText(),'text/plain');toast('Saved')}catch(e){showBox(exportText())}};
+$('#bk-save').onclick=()=>{try{dl('kimura-backup.json',JSON.stringify(J),'application/json');toast('Backup saved')}catch(e){toast('Could not save backup')}};
+$('#bk-load').onclick=()=>$('#bk-file').click();
+$('#bk-file').onchange=e=>{const f=e.target.files[0];if(!f)return;const r=new FileReader();
+  r.onload=()=>{try{const d=JSON.parse(r.result);if(!d||typeof d.topics!=='object'||!Array.isArray(d.entries))throw 0;
+    J={topics:d.topics,entries:d.entries,handoutNotes:d.handoutNotes||{}};persist();refreshAll();toast('Backup restored')}catch(x){toast('That file is not a valid backup')}};
+  r.readAsText(f);e.target.value=''};
+$('#copy-all').onclick=async()=>{const txt=exportText();try{await navigator.clipboard.writeText(txt);toast('Copied')}catch(e){showBox(txt)}};
+
+/* ---------- HANDOUTS ---------- */
+let cur=null,idx=0;
+function renderHoCards(){
+  $('#ho-cards').innerHTML=HANDOUTS.map(h=>{
+    const ready=h.slides.length>0,ext=!ready&&h.link;
+    const inner=`<span class="ico" style="--area:var(--accent);--area-soft:var(--accent-soft)">${svg(h.ic)}</span><span><h3>${esc(h.t)}</h3><p>${ready?h.slides.length+' slides':ext?'Opens in a new tab':'Coming soon'}</p></span><span class="pill ${ready||ext?'':'empty'}">${esc(h.area)}</span>`;
+    return ext?`<a class="hcard" href="${esc(h.link)}" target="_blank" rel="noopener" style="color:inherit;text-decoration:none">${inner}</a>`
+      :`<button class="hcard" data-ho="${h.id}" ${ready?'':'disabled'}>${inner}</button>`}).join('');
+  $$('[data-ho]').forEach(b=>b.onclick=()=>openHandout(b.dataset.ho));
+}
+function openHandout(id){
+  const h=HANDOUTS.find(x=>x.id===id);if(!h)return;
+  if(!h.slides.length){show('handouts',true);if(h.link){window.open(h.link,'_blank')}else toast('This handout is coming soon');return}
+  cur=h;idx=0;show('handouts',true);
+  $('#ho-list').hidden=true;$('#ho-view').hidden=false;$('#ho-title').textContent=h.t;
+  $('#ho-thumbs').innerHTML=h.slides.map((s,i)=>`<button data-i="${i}" aria-label="Slide ${i+1}"><img src="${esc(s)}" alt="" loading="lazy"></button>`).join('');
+  $$('#ho-thumbs button').forEach(b=>b.onclick=()=>go(+b.dataset.i));
+  $('#ho-note').value=J.handoutNotes[id]||'';go(0);
+}
+function go(i){
+  if(!cur)return;idx=Math.max(0,Math.min(cur.slides.length-1,i));
+  $('#ho-img').src=cur.slides[idx];$('#ho-img').alt=cur.t+', slide '+(idx+1);
+  $('#ho-count').textContent=(idx+1)+' / '+cur.slides.length;
+  $('#ho-prev').disabled=idx===0;$('#ho-next').disabled=idx===cur.slides.length-1;
+  $$('#ho-thumbs button').forEach((b,k)=>b.setAttribute('aria-current',k===idx));
+}
+$('#ho-prev').onclick=()=>go(idx-1);$('#ho-next').onclick=()=>go(idx+1);
+$('#ho-back').onclick=()=>{cur=null;$('#ho-view').hidden=true;$('#ho-list').hidden=false};
+$('#ho-stage').addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(idx+1);if(e.key==='ArrowLeft')go(idx-1)});
+let tx=null;
+$('#ho-stage').addEventListener('touchstart',e=>{tx=e.touches[0].clientX},{passive:true});
+$('#ho-stage').addEventListener('touchend',e=>{if(tx===null)return;const d=e.changedTouches[0].clientX-tx;tx=null;if(Math.abs(d)>40)go(idx+(d<0?1:-1))});
+let hoT;$('#ho-note').addEventListener('input',()=>{clearTimeout(hoT);hoT=setTimeout(()=>{
+  if(!cur)return;J.handoutNotes[cur.id]=$('#ho-note').value;persist();$('#ho-saved').textContent=storageOk?'Saved':'Could not save on this device.'},500)});
+document.addEventListener('click',e=>{const b=e.target.closest('[data-handout]');if(b)openHandout(b.dataset.handout)});
+
+/* ---------- NAV ---------- */
+const TABS=['home','hr','csr','handouts','journal'];
+function show(tab,push){
+  if(!TABS.includes(tab))tab='home';
+  TABS.forEach(t=>{$('#tab-'+t).hidden=t!==tab});
+  $$('nav button').forEach(b=>b.setAttribute('aria-current',b.dataset.tab===tab?'page':'false'));
+  if(push)try{history.replaceState(null,'','#'+tab)}catch(e){}
+  window.scrollTo(0,0);
+  try{localStorage.setItem('kimura-tab',tab)}catch(e){}
+}
+document.addEventListener('click',e=>{const g=e.target.closest('[data-go]');if(g)show(g.dataset.go,true)});
+$$('nav button').forEach(b=>b.onclick=()=>{
+  show(b.dataset.tab,true);
+  if(b.dataset.tab==='hr'||b.dataset.tab==='csr'){const s=$('#tab-'+b.dataset.tab);s.querySelector('[data-view]').hidden=true;s.querySelector('[data-list]').hidden=false}
+});
+const THEMES=['blue','pink','green','dark'],TCOL={blue:'#1D5FD1',pink:'#B8265E',green:'#1E7A3C',dark:'#121A1C'};
+function applyTheme(t){if(!THEMES.includes(t))t='blue';document.documentElement.dataset.theme=t;
+  $$('.sw').forEach(b=>b.setAttribute('aria-pressed',b.dataset.th===t));
+  const m=document.querySelector('meta[name=theme-color]');if(m)m.content=TCOL[t];
+  try{localStorage.setItem('kimura-theme',t)}catch(e){}}
+$$('.sw').forEach(b=>b.onclick=()=>applyTheme(b.dataset.th));
+
+renderHoCards();refreshAll();renderPhrases();renderCountdown();applyTheme(document.documentElement.dataset.theme);
+let start=location.hash.slice(1);
+if(!TABS.includes(start)){try{start=localStorage.getItem('kimura-tab')}catch(e){start='home'}}
+show(TABS.includes(start)?start:'home',false);
+</script>
+</body>
+</html>
