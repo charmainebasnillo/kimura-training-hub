@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Kimura Training Hub</title>
-<meta name="description" content="Training hub for Ms. Kimura at Taiheiyo Cement Philippines, Inc., Cebu">
+<title>Trainee Hub by HR/PRCA Team</title>
+<meta name="description" content="Trainee Hub by the HR/PRCA Team, Taiheiyo Cement Philippines, Inc., Cebu">
 <meta name="theme-color" content="#1D5FD1">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='44' fill='%23D2402A'/%3E%3C/svg%3E">
 <script>try{var t=localStorage.getItem('kimura-theme');if(!t)t=matchMedia('(prefers-color-scheme:dark)').matches?'dark':'blue';document.documentElement.dataset.theme=t}catch(e){document.documentElement.dataset.theme='blue'}</script>
@@ -79,12 +79,14 @@ nav button[aria-current="page"]{color:var(--accent);background:var(--accent-soft
 }
 
 /* hero */
-.hero{background:var(--hero-bg);color:var(--hero-fg);border-radius:22px;padding:28px 24px 30px;display:grid;gap:14px;position:relative;overflow:hidden;isolation:isolate}
+.hero{background:radial-gradient(circle at 8% 108%,rgba(255,255,255,.18),transparent 46%),radial-gradient(circle at 70% 40%,rgba(255,255,255,.07),transparent 40%),linear-gradient(135deg,var(--hero-bg),color-mix(in srgb,var(--hero-bg) 58%,var(--accent)));color:var(--hero-fg);border-radius:22px;padding:28px 24px 30px;display:grid;gap:14px;position:relative;overflow:hidden;isolation:isolate}
 .hero h1{font-family:var(--f-display);font-weight:700;font-size:clamp(32px,8.5vw,54px);line-height:1.1}
 .hero p{opacity:.92;max-width:50ch}
 .hero .eyebrow{color:var(--hero-fg);opacity:.75}
-.hero .sun{position:absolute;right:-40px;top:-40px;width:160px;height:160px;border-radius:50%;background:var(--sun);z-index:-1}
-.hero .wave{position:absolute;left:0;right:0;bottom:0;height:40px;z-index:-1;opacity:.18}
+.hero .sun{position:absolute;right:-26px;top:-26px;width:110px;height:110px;border-radius:50%;background:var(--sun);opacity:.9;box-shadow:0 0 0 14px rgba(255,255,255,.08),0 0 0 30px rgba(255,255,255,.05);z-index:-1}
+.hero .deco{position:absolute;right:4px;bottom:34px;width:230px;height:170px;fill:#fff;opacity:.2;z-index:-1}
+.hero .wave2{position:absolute;left:0;right:0;bottom:0;height:34px;z-index:-1;opacity:.1;color:#fff}
+.hero .wave{position:absolute;left:0;right:0;bottom:0;height:40px;z-index:-1;opacity:.16;color:#fff}
 .meta{display:flex;flex-wrap:wrap;gap:8px}
 .chip{display:inline-flex;align-items:center;border-radius:999px;padding:4px 12px;font-size:13px;font-weight:700;font-family:var(--f-mono);background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.28)}
 
@@ -178,6 +180,20 @@ footer{color:var(--ink2);font-size:13px;text-align:center;padding-top:8px}
 .sw[aria-pressed="true"]{box-shadow:0 0 0 3px var(--accent)}
 .ja{font-size:16px}
 .big-tile.hr{background:var(--tile-hr)}.big-tile.csr{background:var(--tile-csr)}.big-tile.ho{background:var(--tile-ho)}
+.brand{min-width:0;line-height:1.25}
+.docs{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px}
+.doc{margin:0;background:var(--surface);border:1px solid var(--line);border-radius:16px;overflow:hidden;display:grid}
+.doc img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover}
+.doc figcaption{display:grid;gap:6px;padding:10px 12px;font-size:14px}
+.doc .save{color:var(--accent);font-weight:700;text-decoration:none}
+.doc .fi{display:grid;place-items:center;aspect-ratio:4/3;background:var(--accent-soft);color:var(--accent);font-family:var(--f-mono);font-weight:600}
+.hero .ja span{display:inline-block}
+a.btn{text-decoration:none;display:inline-flex;align-items:center;justify-content:center}
+.lb{position:fixed;inset:0;background:rgba(0,0,0,.86);z-index:50;display:grid;place-items:center;align-content:center;gap:14px;padding:16px}
+.lb img{max-width:100%;max-height:76vh;border-radius:12px}
+.doc img{cursor:zoom-in}.doc .badge{font-size:12px;color:var(--ink2)}
+.gq{width:100%;box-sizing:border-box;padding:10px 14px;border:1px solid var(--line);border-radius:12px;background:var(--surface);color:var(--ink);font:inherit}
+body{background-image:radial-gradient(color-mix(in srgb,var(--accent) 13%,transparent) 1.3px,transparent 1.7px),radial-gradient(circle at 100% 0,var(--accent-soft),transparent 40%),radial-gradient(circle at 0 100%,var(--csr-soft),transparent 36%);background-size:26px 26px,auto,auto;background-attachment:fixed}
 @media print{nav,.themes,.toast{display:none!important}body{padding:0}}
 </style>
 
@@ -194,19 +210,21 @@ footer{color:var(--ink2);font-size:13px;text-align:center;padding-top:8px}
 
 <main>
   <div class="topbar">
-    <div class="brand">Kimura Training Hub<small>Taiheiyo Cement Philippines, Inc.</small></div>
+    <div class="brand">Trainee Hub by HR/PRCA Team<small>Taiheiyo Cement Philippines, Inc.</small></div>
     <div class="themes" role="group" aria-label="Colour theme"><button class="sw" data-th="blue" style="--c:#1D5FD1" aria-label="Blue theme" aria-pressed="false"></button><button class="sw" data-th="pink" style="--c:#E0508A" aria-label="Pink theme" aria-pressed="false"></button><button class="sw" data-th="green" style="--c:#2E9E57" aria-label="Green theme" aria-pressed="false"></button><button class="sw" data-th="dark" style="--c:#243135" aria-label="Dark theme" aria-pressed="false"></button></div>
   </div>
 
   <section id="tab-home" style="display:grid;gap:20px">
     <div class="hero">
       <div class="sun" aria-hidden="true"></div>
+      <svg class="deco" viewBox="0 0 230 170" aria-hidden="true"><defs><g id="fl"><ellipse cx="0" cy="-8" rx="4.5" ry="8"/><ellipse cx="0" cy="-8" rx="4.5" ry="8" transform="rotate(72)"/><ellipse cx="0" cy="-8" rx="4.5" ry="8" transform="rotate(144)"/><ellipse cx="0" cy="-8" rx="4.5" ry="8" transform="rotate(216)"/><ellipse cx="0" cy="-8" rx="4.5" ry="8" transform="rotate(288)"/></g></defs><use href="#fl" transform="translate(180 38) scale(1.3)"/><use href="#fl" transform="translate(120 96) scale(.9) rotate(20)"/><use href="#fl" transform="translate(200 120) scale(.7) rotate(40)"/><use href="#fl" transform="translate(70 142) scale(.55)"/><use href="#fl" transform="translate(150 18) scale(.5) rotate(15)"/><circle cx="130" cy="40" r="3"/><circle cx="60" cy="90" r="2.5"/><circle cx="170" cy="150" r="2.5"/><circle cx="95" cy="20" r="2"/><circle cx="215" cy="80" r="2"/></svg>
+      <svg class="wave2" viewBox="0 0 400 40" preserveAspectRatio="none" aria-hidden="true"><path d="M0 14 Q50 34 100 14 T200 14 T300 14 T400 14 V40 H0Z" fill="currentColor"/></svg>
       <svg class="wave" viewBox="0 0 400 40" preserveAspectRatio="none" aria-hidden="true"><path d="M0 20 Q50 0 100 20 T200 20 T300 20 T400 20 V40 H0Z" fill="currentColor"/></svg>
       <p class="eyebrow" id="greet">Welcome</p>
       <h1>Ms. Kimura,<br>welcome to Cebu</h1>
-      <p class="ja" lang="ja">ようこそ、セブへ。ここがあなたの学びのスペースです。</p>
+      <p class="ja" lang="ja"><span>ようこそ、セブへ。</span> <span>ここがあなたの学びのスペースです。</span></p>
       <p>This is your space. Open a topic, read the handouts, and write down what you learn. Everything stays here for you to come back to.</p>
-      <div class="meta"><span class="chip">Oct 26 – Dec 18, 2026</span><span class="chip" id="countdown"></span><span class="chip">Taiheiyo Cement Philippines, Inc.</span></div>
+      <div class="meta"><span class="chip" id="countdown"></span><span class="chip">Taiheiyo Cement Philippines, Inc.</span></div>
     </div>
 
     <div class="card qod">
@@ -241,14 +259,8 @@ footer{color:var(--ink2);font-size:13px;text-align:center;padding-top:8px}
 
     <div class="card">
       <div class="sec-title"><h2 style="font-size:22px">Short words you will hear</h2></div>
-      <dl class="gl">
-        <dt>CSR</dt><dd>Corporate social responsibility: how the company helps and works with the community.</dd>
-        <dt>HRA</dt><dd>Human Resources and Administration, the team that hosts your training.</dd>
-        <dt>MMR</dt><dd>Monthly Management Review, a monthly meeting where leaders review results and decide actions.</dd>
-        <dt>IMS</dt><dd>The company's management standards for quality, environment, and health and safety.</dd>
-        <dt>CSEHC</dt><dd>Central Safety, Environment and Health Committee.</dd>
-        <dt>201 file</dt><dd>An employee's personal record file kept by HR.</dd>
-      </dl>
+      <input type="search" id="gl-q" class="gq" placeholder="Search a word" aria-label="Search words">
+      <dl class="gl" id="gloss"></dl>
     </div>
     <div class="card">
       <div class="sec-title"><h2 style="font-size:22px">Useful Cebuano words</h2></div>
@@ -256,7 +268,7 @@ footer{color:var(--ink2);font-size:13px;text-align:center;padding-top:8px}
       <p class="sub">Cebuano is the local language in Cebu. Colleagues also mix English and Tagalog. Ask a colleague to help with pronunciation.</p>
       <dl class="gl" id="phrases"></dl>
     </div>
-    <footer>Taiheiyo Cement Philippines, Inc. · Cebu</footer>
+    <footer>Trainee Hub by HR/PRCA Team · Taiheiyo Cement Philippines, Inc. · Cebu</footer>
   </section>
 
   <section id="tab-hr" hidden class="area-hr" style="display:grid;gap:16px">
@@ -285,6 +297,12 @@ footer{color:var(--ink2);font-size:13px;text-align:center;padding-top:8px}
       <p class="sub">The presentations from your trainers. Open one and swipe through the slides. They stay here for you to read again.</p>
       <div id="ho-cards" style="display:grid;gap:12px"></div>
       <div class="more">More handouts from your colleagues will be added here.</div>
+      <div class="sec-title" style="margin-top:8px"><h2 style="font-size:22px">Photos</h2></div>
+      <p class="sub">Photos from trainings and events. Tap a photo to see it bigger. Press Save to keep a copy on your phone or computer.</p>
+      <div class="row"><button class="btn" id="doc-add-btn">Add photos</button><input type="file" id="doc-add" accept="image/*" multiple hidden></div>
+      <p class="sub" id="doc-status">Photos you add here are shared with everyone who opens this page.</p>
+      <p class="sub">Please add only work-appropriate photos of people who agree to be shown.</p>
+      <div id="doc-grid" class="docs"></div>
     </div>
     <div id="ho-view" hidden style="display:grid;gap:12px">
       <div class="row" style="justify-content:space-between"><button class="link" id="ho-back">All handouts</button><span class="sub" id="ho-count"></span></div>
@@ -311,11 +329,12 @@ footer{color:var(--ink2);font-size:13px;text-align:center;padding-top:8px}
       <h3 style="font-size:17px">Keep a copy</h3>
       <p class="sub">Save everything you wrote as a text file, so it stays with you after training.</p>
       <div class="row"><button class="btn" id="save-file">Save as file</button><button class="btn ghost" id="copy-all">Copy all</button></div>
-      <p class="sub" style="margin-top:6px">Backup lets you move your notes to another phone or computer.</p>
+      <p class="sub" style="margin-top:6px">Backup saves all your notes in one small file (.json). It is not for reading, only for safekeeping. Keep it somewhere safe, such as your email or Google Drive. If your notes are ever lost, or you use a new phone, press Restore backup and choose that file. Photos are not included.</p>
       <div class="row"><button class="btn ghost" id="bk-save">Download backup</button><button class="btn ghost" id="bk-load">Restore backup</button><input type="file" id="bk-file" accept=".json,application/json" hidden></div>
       <textarea id="export-box" readonly hidden aria-label="All notes as text"></textarea>
     </div>
   </section>
+<div class="lb" id="lb" hidden role="dialog" aria-label="Photo viewer"><img id="lb-img" alt=""><div class="row"><a class="btn" id="lb-save" download>Save</a><button class="btn ghost" id="lb-x">Close</button></div></div>
 </main>
 </div>
 <div class="toast" id="toast" hidden></div>
@@ -340,10 +359,10 @@ const IC={
 const svg=k=>`<svg viewBox="0 0 24 24" aria-hidden="true">${IC[k]}</svg>`;
 const HR=[
 {id:'timekeeping',t:'Timekeeping and Attendance',ic:'clock',about:'How work hours, attendance and absences are recorded.',handout:'timekeeping'},
-{id:'offboarding',t:'Offboarding Process',ic:'exit',about:'What happens when an employee leaves the company: notice, clearance, final pay and exit feedback.',handout:'offboarding'},
+{id:'offboarding',t:'Offboarding Process',ic:'exit',about:'What happens when an employee leaves the company: notice, clearance, final pay, exit feedback and support for the person leaving.',handout:'offboarding'},
 {id:'hr-overview',t:'HR Processes Overview',ic:'clip',about:'The basics of hiring, performance reviews, promotion, pay increases, resignation and retirement.'},
 {id:'recruitment',t:'Recruitment and Onboarding',ic:'userplus',about:'How new people are found, tested, interviewed, hired and welcomed.'},
-{id:'201-files',t:'Employee Records (201 Files)',ic:'folder',about:'How employee records are kept safe and organized.'},
+{id:'mental-health',t:'Mental Health Awareness',ic:'heart',about:'Why mental health matters at work, how to notice when a colleague is struggling, and where to find support.'},
 {id:'conduct',t:'Code of Conduct and Discipline',ic:'scale',about:'The rules of good behavior at work, and the fair process when rules are broken.'},
 {id:'events',t:'Recognition Events',ic:'star',about:'How the company plans and runs events that thank employees, such as the Service Loyalty awards.'},
 ].map(t=>({...t,area:'hr'}));
@@ -351,18 +370,74 @@ const CSR=[
 {id:'csr-overview',t:'Community Relations and CSR',ic:'heart',about:'How the company works with the communities near the plant.'},
 {id:'complaints',t:'Complaints and Questions',ic:'chat',about:'How community complaints and questions are received, recorded, answered and closed.'},
 {id:'requests',t:'Community Requests',ic:'gift',about:'How donation and sponsorship requests from the community are reviewed and approved.'},
-{id:'csr-design',t:'Planning a CSR Project',ic:'bars',about:'How a community project is planned and how its results are checked.'},
-{id:'stories',t:'Stakeholder Stories',ic:'book',about:'Real stories of how community programs helped people.'},
-{id:'compare',t:'Japan and Philippines Practices',ic:'globe',about:'How decisions and community work are done differently in each country.'},
 ].map(t=>({...t,area:'csr'}));
 const ALL=[...HR,...CSR];
 /* Handout slides are image files published with the page, e.g. 'handouts/timekeeping/01.jpg'. Empty list = coming soon. Or set link to a shared presentation URL to open it in a new tab. */
+/* Team photos shown to everyone: upload the picture to the repo folder 'documents/' then add a line here.
+   Example: {t:'Team lunch, Nov 2026',src:'documents/team-lunch.jpg'}, */
+const DOCS=[
+];
 const HANDOUTS=[
 {id:'timekeeping',t:'Timekeeping Policy',ic:'clock',area:'HR',slides:[],link:''},
 {id:'offboarding',t:'Offboarding Process',ic:'exit',area:'HR',slides:[],link:''},
 ];
+const GLOSS=[["CSR", "Corporate social responsibility: how the company helps and works with the community."], ["HR", "Human Resources: the team that looks after employees, hiring, pay records and rules."], ["HRA", "Human Resources and Administration, the team that hosts your training."], ["PRCA", "Public Relations and Community Affairs, the team that works with the community and the public."], ["TCPI", "Taiheiyo Cement Philippines, Inc., the company where you are training."], ["MMR", "Monthly Management Review, a monthly meeting where leaders review results and decide actions."], ["IMS", "The company's management standards for quality, environment, and health and safety."], ["CSEHC", "Central Safety, Environment and Health Committee."], ["OJT", "On-the-job training: learning by doing real work with a mentor."], ["SOP", "Standard operating procedure: written step-by-step instructions for a task."], ["PPE", "Personal protective equipment, such as helmet, safety shoes, glasses, gloves and mask. Required in the plant."], ["Toolbox meeting", "A short safety talk before work starts."], ["Quarry", "The place where limestone is dug out of the ground."], ["Kiln", "The huge rotating oven that heats raw materials to make clinker."], ["Clinker", "Hard grey lumps made in the kiln. They are ground with gypsum to make cement."], ["DTR", "Daily time record: the record of your time in and out."], ["OT", "Overtime: work beyond regular hours, paid at a higher rate."], ["VL / SL", "Vacation leave and sick leave."], ["Payslip", "A paper or file showing your salary and deductions for a pay period."], ["13th month pay", "Extra pay required by law, given every December."], ["SSS", "Social Security System: pension and benefits for private employees."], ["PhilHealth", "The national health insurance."], ["Pag-IBIG", "A government savings fund that also helps with housing loans."], ["BIR / TIN", "Bureau of Internal Revenue (the tax office) and Tax Identification Number."], ["DOLE", "Department of Labor and Employment, the government office for labor rules."], ["Probationary", "The first stage of employment, up to six months, before becoming a regular employee."], ["Memo", "A short official written notice to employees."], ["NTE", "Notice to Explain: a letter asking an employee to explain a possible rule violation. It is part of a fair process."], ["Clearance", "A form signed by each department to confirm nothing is owed when someone leaves."], ["Final pay", "The last salary and benefits, released after clearance."], ["COE", "Certificate of Employment, a letter confirming where and when a person worked."], ["Exit interview", "A talk with HR when someone leaves, to hear their feedback."], ["Stakeholder", "Any person or group affected by the company, such as neighbors, employees and government."], ["LGU", "Local government unit: the city or municipality government."], ["Barangay", "The smallest local government unit, like a village or district, led by a barangay captain."], ["MOA", "Memorandum of Agreement: a written agreement between two parties."], ["Sir / Ma'am", "The polite way to address seniors and colleagues in the office."], ["Merienda", "A light snack in the morning or afternoon."], ["Pasalubong", "A gift brought back from a trip for coworkers and family."], ["Fiesta", "A yearly town celebration for its patron saint, with food and gatherings."], ["Sinulog", "Cebu's big festival in January honoring the Santo Niño."]];
+function renderGloss(q){q=(q||"").toLowerCase().trim();const l=GLOSS.filter(g=>!q||(g[0]+" "+g[1]).toLowerCase().includes(q));$("#gloss").innerHTML=l.length?l.map(g=>`<dt>${esc(g[0])}</dt><dd>${esc(g[1])}</dd>`).join(""):"<dd>No match. Try another word.</dd>"}
 /* Cebuano is the local language in Cebu: [Cebuano, Japanese, English] */
 const PHRASES=[['Maayong buntag','おはようございます','Good morning'],['Maayong udto','こんにちは (昼)','Good noon'],['Maayong hapon','こんにちは (午後)','Good afternoon'],['Maayong gabii','こんばんは','Good evening'],['Kumusta ka?','お元気ですか？','How are you?'],['Maayo ra','元気です','I am fine'],['Salamat','ありがとう','Thank you'],['Palihug','お願いします','Please'],['Pasayloa ko','すみません','Excuse me / sorry'],['Oo / Dili','はい / いいえ','Yes / No'],['Wala ko kasabot','わかりません','I do not understand'],['Unsa ni?','これは何ですか？','What is this?'],['Pila ni?','いくらですか？','How much is this?'],['Tabang','助けて / 手伝って','Help'],['Kaon ta','食べましょう','Let us eat'],['Amping','気をつけて','Take care']];
+const DBN='trainee-hub',ST='photos';let PURLS=[];
+const dbOpen=()=>new Promise((res,rej)=>{const r=indexedDB.open(DBN,1);r.onupgradeneeded=()=>r.result.createObjectStore(ST,{keyPath:'id'});r.onsuccess=()=>res(r.result);r.onerror=()=>rej(r.error)});
+const dbDo=(mode,fn)=>dbOpen().then(d=>new Promise((res,rej)=>{const t=d.transaction(ST,mode),q=fn(t.objectStore(ST));t.oncomplete=()=>res(q&&q.result);t.onerror=()=>rej(t.error)}));
+/* ---- Shared album (Firebase Firestore over its web API; needs no extra libraries) ---- */
+const FB={key:'AIzaSyC2_mQchZpa8OklbJ4edx7zNDqzO8Mc0hk',pid:'trainee-hub-b5a3c'};
+const FS='https://firestore.googleapis.com/v1/projects/'+FB.pid+'/databases/(default)/documents/photos';
+let AUTH=null,CLOUD=[],NEXT='',CLOUD_OK=null;
+const fbSaved=()=>{try{return JSON.parse(localStorage.getItem('trainee-fb-auth')||'null')||{}}catch(e){return{}}};
+async function fbAuth(){
+  if(AUTH&&AUTH.exp>Date.now()+60000)return AUTH;
+  const sv=fbSaved();let r;
+  if(sv.refresh){r=await fetch('https://securetoken.googleapis.com/v1/token?key='+FB.key,{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:'grant_type=refresh_token&refresh_token='+encodeURIComponent(sv.refresh)});
+    if(r.ok){const d=await r.json();AUTH={idToken:d.id_token,uid:d.user_id,exp:Date.now()+d.expires_in*1000};try{localStorage.setItem('trainee-fb-auth',JSON.stringify({refresh:d.refresh_token,uid:d.user_id}))}catch(e){}return AUTH}}
+  r=await fetch('https://identitytoolkit.googleapis.com/v1/accounts:signUp?key='+FB.key,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({returnSecureToken:true})});
+  if(!r.ok)throw new Error('auth');
+  const d=await r.json();AUTH={idToken:d.idToken,uid:d.localId,exp:Date.now()+d.expiresIn*1000};
+  try{localStorage.setItem('trainee-fb-auth',JSON.stringify({refresh:d.refreshToken,uid:d.localId}))}catch(e){}return AUTH}
+async function fbLoad(more){
+  try{const r=await fetch(FS+'?pageSize=30&orderBy='+encodeURIComponent('at desc')+(more&&NEXT?'&pageToken='+encodeURIComponent(NEXT):''));
+    if(!r.ok)throw new Error('list');const d=await r.json();
+    const items=(d.documents||[]).map(x=>{const f=x.fields||{};return{id:x.name.split('/').pop(),t:(f.name||{}).stringValue||'Photo',u:(f.img||{}).stringValue||'',uid:(f.uid||{}).stringValue||''}}).filter(x=>x.u);
+    CLOUD=more?CLOUD.concat(items):items;NEXT=d.nextPageToken||'';CLOUD_OK=true}
+  catch(e){CLOUD_OK=false}}
+async function fbAdd(name,img){const a=await fbAuth();
+  const r=await fetch(FS,{method:'POST',headers:{'Content-Type':'application/json',Authorization:'Bearer '+a.idToken},body:JSON.stringify({fields:{uid:{stringValue:a.uid},name:{stringValue:name.slice(0,80)},img:{stringValue:img},at:{integerValue:String(Date.now())}}})});
+  if(!r.ok)throw new Error('add')}
+async function fbDel(id){const a=await fbAuth();const r=await fetch(FS+'/'+encodeURIComponent(id),{method:'DELETE',headers:{Authorization:'Bearer '+a.idToken}});if(!r.ok)throw new Error('del')}
+const shrinkURL=f=>new Promise((res,rej)=>{const im=new Image(),u=URL.createObjectURL(f);im.onload=()=>{const k=Math.min(1,1000/Math.max(im.width,im.height)),c=document.createElement('canvas');c.width=Math.round(im.width*k);c.height=Math.round(im.height*k);c.getContext('2d').drawImage(im,0,0,c.width,c.height);URL.revokeObjectURL(u);
+  let q=.75,d=c.toDataURL('image/jpeg',q);while(d.length>600000&&q>.3){q-=.1;d=c.toDataURL('image/jpeg',q)}d.length>650000?rej(new Error('big')):res(d)};im.onerror=()=>{URL.revokeObjectURL(u);rej(new Error('img'))};im.src=u});
+let PH=[];
+async function renderDocs(){const g=$('#doc-grid');let mine=[];
+  try{mine=((await dbDo('readonly',s=>s.getAll()))||[]).sort((a,b)=>b.at-a.at)}catch(e){}
+  PURLS.forEach(u=>URL.revokeObjectURL(u));PURLS=[];const me=fbSaved().uid;
+  PH=[...CLOUD.map(p=>({t:p.t,u:p.u,id:p.id,cloud:1,mine:p.uid&&p.uid===me,f:p.t+'.jpg'})),
+      ...mine.map(p=>{let u=p.img;if(!u){u=URL.createObjectURL(p.blob);PURLS.push(u)}return{t:p.name,u,id:p.id,local:1,mine:1,f:p.name+'.jpg'}}),
+      ...DOCS.map(d=>({t:d.t,u:encodeURI(d.src),f:d.src.split('/').pop()}))];
+  const st=$('#doc-status');if(st)st.textContent=CLOUD_OK===false?'The shared album could not be reached. Photos you add will be saved on this device only.':'Photos you add here are shared with everyone who opens this page.';
+  if(!PH.length){g.innerHTML='<div class="more" style="grid-column:1/-1">No photos yet. Press Add photos to put in the first one.</div>';return}
+  g.innerHTML=PH.map((p,i)=>`<figure class="doc"><img src="${p.u}" alt="${esc(p.t)}" data-i="${i}" loading="lazy"><figcaption><span>${esc(p.t)}</span><span class="badge">${p.local?'On this device only':p.cloud?(p.mine?'Shared · added by you':'Shared'):'From the team'}</span><span class="row" style="gap:14px"><a class="save" href="${p.u}" download="${esc(p.f)}">Save</a>${p.mine?`<button class="link" data-del="${esc(p.id)}" data-kind="${p.cloud?'cloud':'local'}">Remove</button>`:''}</span></figcaption></figure>`).join('')+(NEXT?'<div style="grid-column:1/-1"><button class="btn ghost" id="doc-more">Show more photos</button></div>':'')}
+function initPhotos(){
+  $('#doc-add-btn').onclick=()=>$('#doc-add').click();
+  $('#doc-add').onchange=async e=>{const fs=[...e.target.files];e.target.value='';if(!fs.length)return;let n=0,l=0;
+    for(const f of fs){let img;try{img=await shrinkURL(f)}catch(x){continue}
+      const nm=f.name.replace(/\.[^.]+$/,'');
+      try{await fbAdd(nm,img);n++}catch(x){try{await dbDo('readwrite',s=>s.put({id:Date.now()+'-'+l,name:nm,img,at:Date.now()+l}));l++}catch(y){}}}
+    toast(n?n+' photo'+(n>1?'s':'')+' shared'+(l?', '+l+' saved on this device only':''):l?l+' saved on this device only (shared album not reachable)':'Could not add the photo');
+    await fbLoad();renderDocs()};
+  $('#doc-grid').onclick=async e=>{const im=e.target.closest('img[data-i]'),d=e.target.closest('[data-del]');
+    if(e.target.id==='doc-more'){await fbLoad(true);renderDocs();return}
+    if(im){const p=PH[+im.dataset.i];$('#lb-img').src=p.u;$('#lb-save').href=p.u;$('#lb-save').download=p.f;$('#lb').hidden=false}
+    else if(d&&confirm('Remove this photo?')){try{if(d.dataset.kind==='cloud'){await fbDel(d.dataset.del);await fbLoad()}else await dbDo('readwrite',s=>s.delete(d.dataset.del))}catch(x){toast('Could not remove the photo')}renderDocs()}};
+  $('#lb-x').onclick=()=>{$('#lb').hidden=true};$('#lb').onclick=e=>{if(e.target.id==='lb')$('#lb').hidden=true};
+  fbLoad().then(renderDocs)}
 function renderPhrases(){$('#phrases').innerHTML=PHRASES.map(p=>`<dt>${esc(p[0])}</dt><dd>${esc(p[1])} · ${esc(p[2])}</dd>`).join('')}
 function renderCountdown(){const day=864e5,s=new Date(2026,9,26),e=new Date(2026,11,18),n=new Date(),d0=new Date(n.getFullYear(),n.getMonth(),n.getDate());let t;
   if(d0<s){const k=Math.round((s-d0)/day);t='Starts in '+k+' day'+(k===1?'':'s')}
@@ -498,7 +573,7 @@ function exportText(){
 function showBox(txt){const b=$('#export-box');b.hidden=false;b.value=txt;b.style.minHeight='200px';b.select();toast('Select and copy the text below')}
 function dl(name,data,type){const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([data],{type}));a.download=name;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(a.href),1500)}
 $('#save-file').onclick=()=>{try{dl('my-training-journal.txt',exportText(),'text/plain');toast('Saved')}catch(e){showBox(exportText())}};
-$('#bk-save').onclick=()=>{try{dl('kimura-backup.json',JSON.stringify(J),'application/json');toast('Backup saved')}catch(e){toast('Could not save backup')}};
+$('#bk-save').onclick=()=>{try{dl('trainee-hub-backup.json',JSON.stringify(J),'application/json');toast('Backup saved')}catch(e){toast('Could not save backup')}};
 $('#bk-load').onclick=()=>$('#bk-file').click();
 $('#bk-file').onchange=e=>{const f=e.target.files[0];if(!f)return;const r=new FileReader();
   r.onload=()=>{try{const d=JSON.parse(r.result);if(!d||typeof d.topics!=='object'||!Array.isArray(d.entries))throw 0;
@@ -564,7 +639,7 @@ function applyTheme(t){if(!THEMES.includes(t))t='blue';document.documentElement.
   try{localStorage.setItem('kimura-theme',t)}catch(e){}}
 $$('.sw').forEach(b=>b.onclick=()=>applyTheme(b.dataset.th));
 
-renderHoCards();refreshAll();renderPhrases();renderCountdown();applyTheme(document.documentElement.dataset.theme);
+renderHoCards();refreshAll();renderPhrases();renderCountdown();initPhotos();renderDocs();renderGloss();$("#gl-q").oninput=e=>renderGloss(e.target.value);applyTheme(document.documentElement.dataset.theme);
 let start=location.hash.slice(1);
 if(!TABS.includes(start)){try{start=localStorage.getItem('kimura-tab')}catch(e){start='home'}}
 show(TABS.includes(start)?start:'home',false);
